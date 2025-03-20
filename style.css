@@ -1,0 +1,53 @@
+body {
+    background-image: url('img/taust.jpg'); /* Viita oma pildi asukohale */
+    background-size: cover; /* Venitab pildi üle kogu ekraani */
+    background-position: center; /* Keskendab pildi */
+    background-attachment: fixed; /* Pilt jääb paigale, kui kerid lehte */
+    background-repeat: no-repeat; /* Väldib pildi kordumist */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+.content-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+.content-box:hover {
+    transform: scale(1.05);
+}
+.content-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+.post-card img {
+    height: 150px; 
+    width: 100%; 
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+.post-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+.post-card:hover {
+    transform: scale(1.05); 
+}
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
