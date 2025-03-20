@@ -1,6 +1,6 @@
 <?php 
 $page = isset($_GET['page']) ? $_GET['page'] : 'homepage' ; #Kui olema page siis võtab selle, kui ei siis võtab index faili
-$allowed_pages = ['homepage', 'blog', 'contact', 'post1'. 'post2', 'psot2']; //.html failid
+$allowed_pages = ['homepage', 'blog', 'contact', 'post1', 'post2', 'post3', 'post4', 'post5']; //.html failid
 if(!in_array($page, $allowed_pages)){
     $page = 'homepage';
 }
@@ -12,7 +12,10 @@ if(!in_array($page, $allowed_pages)){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Simple</title>
+    <title>Merlin Blogi</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 <body>
     <div class="container">
