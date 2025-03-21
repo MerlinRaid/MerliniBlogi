@@ -1,10 +1,10 @@
 body {
-    background-image: url('img/taust.jpg'); /* Viita oma pildi asukohale */
+    background-image: url('img/.jpg'); /* Viita oma pildi asukohale. Ei pannud, sest ei sobi */  
     background-size: cover; /* Venitab pildi üle kogu ekraani */
     background-position: center; /* Keskendab pildi */
     background-attachment: fixed; /* Pilt jääb paigale, kui kerid lehte */
     background-repeat: no-repeat; /* Väldib pildi kordumist */
-}
+} 
 
 a {
     text-decoration: none !important;
