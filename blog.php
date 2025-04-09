@@ -31,7 +31,7 @@
                     <h4>Kass kui juht </h4>
                     <h6>03.03.2025</h6>
                 </div>
-                <p>millist juhti võrdleme kassiga, kuidas käitub ja, mida ta teeb</p>
+                <p>Millist juhti võrdleme kassiga, kuidas käitub ja, mida ta teeb</p>
             </a>
         </div>
 
@@ -42,7 +42,7 @@
                     <h4>Hunt kui juht</h4>
                     <h6>02.03.2025</h6>
                 </div>
-                <p>Millist juhti võrdleme hundiga, kuidas käitub ja, mid ata teeb</p>
+                <p>Millist juhti võrdleme hundiga, kuidas käitub ja, mida ta teeb</p>
             </a>
         </div>
 
@@ -54,7 +54,7 @@
                     <h4>Siga kui juht</h4>
                     <h6>27.02.2025</h6>
                 </div>
-                <p>illist juhti võrdleme sieaga, kuidas käitub ja, mida ta teeb</p>
+                <p>Millist juhti võrdleme seaga, kuidas käitub ja, mida ta teeb</p>
             </a>
         </div>
     </div>
