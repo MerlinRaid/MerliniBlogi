@@ -1,61 +1,40 @@
-<div class="container my-4">
-    <div class="row g-3">
-       
-        <div class="col-md-4">
-            <a href="?page=post1" class="post-card d-block">
-                <img src="img/ahv.jpg" alt="Ahv nägu" class="img-fluid">
-                <div class="post-header">
-                    <h4>Ahv kui juht</h4>
-                    <h6>06.03.2025</h6>
-                </div>
-                <p>Millist juhti võrdleme ahviga, kuidas käitub ja, mid ata teeb</p>
-            </a>
-        </div>
+<?php
+$sql = "SELECT id, heading, preamble, photo, DATE_FORMAT(added, '%d.%m.%Y') AS estonia FROM blog ORDER BY added DESC";
+$data = $db->dbGetArray($sql);
 
-        <div class="col-md-4">
-            <a href="?page=post2" class="post-card d-block">
-                <img src="img/koer.jpg" alt="Koer" class="img-fluid">
-                <div class="post-header">
-                    <h4>Koer kui juht</h4>
-                    <h6>05.03.2025</h6>
-                </div>
-                <p>Millist juhti võrdleme koeraga, kuidas käitub ja, mida ta teeb</p>
-            </a>
-        </div>
+if($data !== false) {
+    $counter = 0;
 
-        
+    foreach($data as $post) {
+        if($counter % 3 === 0) {
+            echo '<div class="row mb-4">';
+        }
+        ?>
         <div class="col-md-4">
-            <a href="?page=post3" class="post-card d-block">
-                <img src="img/kass.jpg" alt="Kass" class="img-fluid">
-                <div class="post-header">
-                    <h4>Kass kui juht </h4>
-                    <h6>03.03.2025</h6>
+            <div class="card h-100 shadow">
+                <img src="<?= htmlspecialchars($post['photo']) ?>" class="card-img-top" alt="<?= htmlspecialchars($post['heading']) ?>">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title"><?= htmlspecialchars($post['heading']) ?></h5>
+                    <p class="text-muted"><?= $post['estonia'] ?></p>
+                    <p class="card-text"><?= htmlspecialchars($post['preamble']) ?></p>
+                    <div class="mt-auto">
+                        <a href="?page=post&sid=<?= $post['id'] ?>" class="btn btn-primary">Loe edasi</a>
+                    </div>
                 </div>
-                <p>Millist juhti võrdleme kassiga, kuidas käitub ja, mida ta teeb</p>
-            </a>
+            </div>
         </div>
+        <?php
+        $counter++;
+        if($counter % 3 === 0) {
+            echo '</div>';
+        }
+    }
 
-        <div class="col-md-4">
-            <a href="?page=post4" class="post-card d-block">
-                <img src="img/hunt.jpg" alt="Hunt" class="img-fluid">
-                <div class="post-header">
-                    <h4>Hunt kui juht</h4>
-                    <h6>02.03.2025</h6>
-                </div>
-                <p>Millist juhti võrdleme hundiga, kuidas käitub ja, mida ta teeb</p>
-            </a>
-        </div>
-
-       
-        <div class="col-md-4">
-            <a href="?page=post5" class="post-card d-block">
-                <img src="img/siga.jpg" alt="Siga" class="img-fluid">
-                <div class="post-header">
-                    <h4>Siga kui juht</h4>
-                    <h6>27.02.2025</h6>
-                </div>
-                <p>Millist juhti võrdleme seaga, kuidas käitub ja, mida ta teeb</p>
-            </a>
-        </div>
-    </div>
-</div>
+    // Kui viimases reas polnud täpselt 3 kaarti, sulgeme rea
+    if($counter % 3 !== 0) {
+        echo '</div>';
+    }
+} else {
+    echo "<div class='alert alert-warning'>Ühtegi postitust ei leitud.</div>";
+}
+?>

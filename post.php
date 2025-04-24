@@ -8,6 +8,11 @@ if(isset($_GET['sid']) && is_numeric($_GET['sid'])) { //Kui on olemas ja number
     //$db->show($val); //Näita postituse andmeid
    
 
+    $sql_prev = "SELECT id from blog where added > '". $val['added'] . "' ORDER BY added asc LIMIT 1";
+    $prev = $db->dbGetArray($sql_prev);
+    $sql_next = "SELECT id FROM blog WHERE added < '". $val['added'] . "' ORDER BY added desc LIMIT 1";
+    $next = $db->dbGetArray($sql_next);
+    // echo $prev[0]['id']." ".$next[0]['id'];
 
 ?>
 
@@ -30,13 +35,36 @@ if(isset($_GET['sid']) && is_numeric($_GET['sid'])) { //Kui on olemas ja number
                     $safeTag = htmlspecialchars($tag);
                     $links[] = "<a href='?tag={$safeTag}' class='badge bg-secondary mx-1'>{$safeTag}</a>";
                 }
-                echo implode("", $links);
+                $result = implode(",", $links); // Ühenda listi elemendid komaga
+                echo $result; // väljasta tulemus;
             ?>
         </div>
 
-        <div class="d-flex justify-content-between mt-4">
-            <a href="?page=post2" class="btn btn-primary">Eelmine postitus &rarr;</a>
-        </div>
+        <div class="container mt-4">
+            <div class="row justify-content-between">
+                <?php
+                // EElmine nupp
+                if($prev !== false){
+                    ?>
+                    <div class="col-md-4">
+                        <a class="btn btn-outline-primary w-10" href="?page=post&sid=<?=$prev[0]['id']; ?>">Eelmine postitus</a>
+                    </div>
+                    <?php
+                }
+                // Järgmine postitus
+                if($next !== false){
+                    ?>
+                    <div class="col-md-4 text-end">
+                         <a class="btn btn-outline-primary w-10" href="?page=post&sid=<?=$next[0]['id']; ?>">Järgmine postitus</a>
+                    </div>
+                    <?php
+                }
+                ?>
+                
+                    
+                </div>
+            </div>
+
 </div>
 
 <?php
